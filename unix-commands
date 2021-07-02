@@ -1,4 +1,6 @@
 To check the disk space :
-
 df -h
+
+To list installed packages :
+apt list --installed
 
