@@ -1,0 +1,8 @@
+To make command alias for quick access:
+
+Modify "~/.bash_profile" file
+
+Add alias in this file.
+For example: I want to create command "pi" to ssh to my raspberry pi
+
+alias pi="ssh pi@raspberrypi.local"
