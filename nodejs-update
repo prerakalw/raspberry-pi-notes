@@ -1,0 +1,20 @@
+
+# Get the latest system’s package list onto the Raspberry Pi 
+sudo apt update
+sudo apt full-upgrade
+
+# Check the version of Nodejs and npm
+node -v
+npm -v
+
+# Now remove old version
+sudo apt remove node
+sudo apt remove nodejs
+
+# Install new versions
+sudo apt install nodejs
+
+# Check versions now
+nodejs -v
+node -v
+npm -v
