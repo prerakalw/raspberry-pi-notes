@@ -4,3 +4,7 @@ df -h
 To list installed packages :
 apt list --installed
 
+
+vcgencmd measure_clock arm
+vcgencmd get_throttled
+vcgencmd measure_temp
