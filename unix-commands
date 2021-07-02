@@ -1,0 +1,4 @@
+To check the disk space :
+
+df -h
+
