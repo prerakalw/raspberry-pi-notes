@@ -1,0 +1,29 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install samba samba-common
+sudo fdisk -l 
+sudo mkdir -p /mnt/prerakHDD
+sudo mount -t vfat /dev/sda1 /mnt/prerakHDD
+
+sudo nano /etc/samba/smb.conf
+---
+[MyMedia]
+
+path = /mnt/prerakHDD
+
+writeable = yes
+
+create mask = 0775
+
+directory mask = 0775
+
+public=no
+---
+
+
+sudo systemctl restart smbd
+sudo systemctl status smbd
+
+ifconfig
+
+To connect on a Mac, open Finder and click Go > Connect to Server, typing in smb://raspberrypi when prompted.
