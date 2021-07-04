@@ -4,6 +4,9 @@ df -h
 To list installed packages :
 apt list --installed
 
+To list mount points 
+findmnt -l
+
 
 vcgencmd measure_clock arm
 vcgencmd get_throttled
