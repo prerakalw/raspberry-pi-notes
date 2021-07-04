@@ -7,6 +7,9 @@ apt list --installed
 To list mount points 
 findmnt -l
 
+To know linux OS 
+cat /etc/os-release
+
 
 vcgencmd measure_clock arm
 vcgencmd get_throttled
