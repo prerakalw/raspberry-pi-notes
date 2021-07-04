@@ -1,0 +1,25 @@
+Get private IP : ip r | grep default 
+Get Router IP : ifconfig -a | grep -A 1 eth0 | grep inet
+
+----
+pi@raspberrypi:~$ ip r | grep default 
+default via 192.168.0.1 dev eth0 proto dhcp src 192.168.0.38 metric 202 
+default via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.171 metric 303 
+pi@raspberrypi:~$ ifconfig -a | grep -A 1 eth0 | grep inet
+        inet 192.168.0.38  netmask 255.255.255.0  broadcast 192.168.0.255
+pi@raspberrypi:~$ 
+----
+
+file to edit : /etc/dhcpcd.conf
+content :
+interface eth0
+static ip_address=<YOUR_PRIVATE_IP_ADDRESS_HERE>
+static routers=<YOUR_ROUTER_IP_HERE>
+
+----
+sudo nano /etc/dhcpcd.conf
+
+interface eth0
+static ip_address=192.168.0.38
+static routers=192.168.0.1
+----
