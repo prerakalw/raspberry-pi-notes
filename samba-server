@@ -3,7 +3,18 @@ sudo apt upgrade
 sudo apt install samba samba-common
 sudo fdisk -l 
 sudo mkdir -p /mnt/prerakHDD
-sudo mount -t vfat /dev/sda1 /mnt/prerakHDD
+sudo mount  -o uid=pi,gid=pi /dev/sda1 /mnt/prerakHDD
+
+This mount will get auto unmounted after next reboot
+to make it permanent make an entry in file : /etc/fstab
+
+sudo nano /etc/fstab
+
+add this line in the end of the file
+/dev/sda1 /mnt/prerakHDD vfat       rw,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro
+
+short also works :
+/dev/sda1             /mnt/prerakHDD  vfat    uid=pi,gid=pi,fmask=0022,dmask=0022   0   0
 
 sudo nano /etc/samba/smb.conf
 ---
@@ -27,3 +38,12 @@ sudo systemctl status smbd
 ifconfig
 
 To connect on a Mac, open Finder and click Go > Connect to Server, typing in smb://raspberrypi when prompted.
+
+
+To unmount 
+--
+sudo umount -l /dev/sda1
+
+List mounts 
+--
+findmnt -l
